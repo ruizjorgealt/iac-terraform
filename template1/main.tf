@@ -53,18 +53,6 @@ resource "aws_subnet" "public-subnet" {
   }
 }
 
-# resource "aws_subnet" "public-subnet2" {
-#   vpc_id                  = "${aws_vpc.nube1.id}"
-#   cidr_block              = "172.31.4.0/22"
-#   availability_zone       = "us-east-2b"
-#   map_public_ip_on_launch = true
-
-#   tags = {
-#     Name = "b-nube1-public"
-#     Type = "public"
-#   }
-# }
-
 /* Route Table Association */
 resource "aws_route_table_association" "association" {
   count          = "${var.subnet_count}"
@@ -129,3 +117,9 @@ resource "aws_instance" "web-servers" {
     Name = "tf-web"
   }
 }
+
+/* Application Load Balancer */
+
+/* Simple Storage Service Bucket */
+
+/* IAM Role */
